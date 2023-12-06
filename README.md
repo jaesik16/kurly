@@ -1,73 +1,121 @@
+## 깃허브 배포
+
+01. 리파지토리 생성
+  - kurly
+
+02. setting
+   *  pages 클릭 > GitHub Pages > Build and deployment (Branch) > None 선택 master > 배포주소.io
+
+03. package.json
+                    https://jaesik16.github.io/kurly => 배포주소
+  - "homepage" : "https://jaesik16.github.io/kurly"
+  - "homepage" : "http://myusername.github.io/my-app/"
+
+04. git 설정
+    - git init
+
+05. git 환경(config) 설정(name, email)
+    - git config user.name 'answotlr12'
+    - git config user.email 'qweqwexz@naver.com'
+
+06. 리모트 오리진 추가
+    - git remote add origin https://github.com/jaesik16/kurly.git
+
+07. add(스테이징)
+    - git add *
+
+08. commit(커밋)
+    - git commit -m 'Kurly 배포'
+
+09. push(푸쉬)
+    - git push origin master
+
+10. Deployment
+    
+    ### GitHub pages
+
+    Step 1 : Add homepage to package.json
+        - "homepage" : "https://jaesik16.github.io/kurly"
+
+    Step 2: Install gh-pages and add deploy to scripts in package.json
+        - npm install --save gh-pages
+        - npm install save gh-pages
+        - package.json 속성 추가하기
+           * branch 배포
+            "predeploy": "npm run build",
+            "deploy": "gh-pages -d build",
+
+        -  master 배포 
+        -  package.json script에 속성 추가하기
+---        
+            "predeploy": "npm run build",
+            "deploy": "gh-pages -b master -d build"
+---        
+        - 저장한다.
+
+---
+
+    Step 3: Deploy the site by running npm run deploy
+        - build
+        - npm run deploy
+        .
+        .
+        .
+        - Published => 배포완료!
+        
+---
+
+11. 깃허브
+    - 새로고침
+    - settings
+    - pages
+    - GitHub Pages
+    - pages 클릭 > GitHub Pages > Build and deployment (Branch) > None 선택 
+      > master선 택 > Save
+    - 새로고침
+    - 1분이상 대기
+    - 새로고침
+    - Visit site 클릭 웹사이트 열린다
+
+12. 버그
+    - 새로고침
+      * 404 페이지 오류
+      * HashRouter 로 수정한다.
+    - https => http 통신 CORS 오류 발생 웹서버에 접근 허용 안됨
+     * 닷홈 SSL 인증서 발급
+       a. 유료 도메인을 구입
+       b. 유료 웹호스팅으로 변경신청
+       c. SSL 인증서 무료 발급한다.
+       * 그리고 2-3일 기다린다.
+       * 닷홈 도메인 정보 > SSL 연결 도메인 >SSL 인증서 (사용중) 확인
+    
+    -  전체 컴포넌트 REST API 수정
+       * url 내용을 수정한다.
+           수정 전
+           http://answotlr12.dothome.co.kr
+           
+           수정 후
+           https://유료도메인.co.kr 
 
 
 
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+# 자바스크립트
+## 자바코딩
+```
+    const selector = useSelector((state)=>state);
+    const dispatch = useDispatch();
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    React.useEffect(()=>{
+        // 상태관리 변수에 
+        // 새로고침해도 계속 로그인 정보를 유지하도록
+        // 로컬스토레이지 데이터를 가져온다.
+        if(localStorage.getItem('KURLY_SIGNIN_DATA')!==''){
+            const res = JSON.parse(localStorage.getItem('KURLY_SIGNIN_DATA'))
+            dispatch(signIn(res))
+        }
+    },[])
+```
